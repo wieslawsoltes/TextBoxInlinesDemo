@@ -1,0 +1,83 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:TextBoxInlinesDemo.Views"
+        xmlns:vm="using:TextBoxInlinesDemo.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="TextBoxInlinesDemo.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        Width="800" Height="600"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="TextBoxInlinesDemo">
+
+    <Design.DataContext>
+       <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <!-- TextTrimming="WordEllipsis" -->
+    <SelectableTextBlock VerticalAlignment="Center" 
+                         HorizontalAlignment="Stretch"
+                         TextWrapping="NoWrap"
+                         TextTrimming="{x:Static views:MainWindow.RunTrimming}">
+        <SelectableTextBlock.Inlines>
+            <InlineUIContainer>
+                <Border BorderBrush="Black" 
+                        BorderThickness="1" 
+                        Margin="4" 
+                        CornerRadius="3">
+                    <TextBlock Margin="4" 
+                               Text="Label 1"
+                               VerticalAlignment="Center"  />
+                </Border>
+            </InlineUIContainer>
+            <InlineUIContainer>
+                <Border BorderBrush="Black" 
+                        BorderThickness="1" 
+                        Margin="4" 
+                        CornerRadius="3">
+                    <TextBlock Margin="4" 
+                               Text="Label 2"
+                               VerticalAlignment="Center" />
+                </Border>
+            </InlineUIContainer>
+            <Span>
+                <Border BorderBrush="Black" 
+                        BorderThickness="1" 
+                        Margin="4" 
+                        CornerRadius="3">
+                    <TextBlock Margin="4" 
+                               Text="Label 3"
+                               VerticalAlignment="Center" />
+                </Border>
+            </Span>
+            <Run>Label 4</Run>
+            <Run>Label 5</Run>
+            <Run>Label 6</Run>
+            <Run>Label 7</Run>
+<!--
+            <Span>
+                <SelectableTextBlock 
+                    Margin="4"
+                    Padding="4"><Run>Label 8</Run></SelectableTextBlock>
+            </Span>
+-->
+<!--
+            <TextBox Text="Label 9"
+                     BorderBrush="Transparent"
+                     BorderThickness="1" 
+                     Margin="4"
+                     Padding="4"
+                     CornerRadius="3"
+                     VerticalContentAlignment="Center">
+                <TextBox.InnerLeftContent>
+                    
+                </TextBox.InnerLeftContent>
+            </TextBox>
+-->
+        </SelectableTextBlock.Inlines>
+
+    </SelectableTextBlock>
+</Window>
