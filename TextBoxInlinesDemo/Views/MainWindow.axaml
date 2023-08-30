@@ -17,11 +17,16 @@
     <vm:MainWindowViewModel />
   </Design.DataContext>
 
+  <Grid ColumnDefinitions="Auto,*,Auto,80">
+
+  <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="Column 0" />
+
   <!-- TextTrimming="WordEllipsis" -->
   <SelectableTextBlock VerticalAlignment="Center"
                        HorizontalAlignment="Stretch"
                        TextWrapping="NoWrap"
-                       TextTrimming="{x:Static views:MainWindow.RunTrimming}">
+                       TextTrimming="{x:Static views:MainWindow.RunTrimming}"
+                       Grid.Column="1">
     <SelectableTextBlock.Inlines>
 
       <InlineUIContainer>
@@ -85,6 +90,11 @@
       -->
 
     </SelectableTextBlock.Inlines>
-
   </SelectableTextBlock>
+
+  <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="Column 2" />
+  <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="Column 3" />
+
+  </Grid>
+
 </Window>
