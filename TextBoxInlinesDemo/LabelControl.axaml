@@ -1,0 +1,40 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:TextBoxInlinesDemo">
+
+  <Design.PreviewWith>
+    <controls:LabelControl Text="Label 0" />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|LabelControl">
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border BorderBrush="Black"
+                BorderThickness="1"
+                Margin="4"
+                CornerRadius="3"
+                Name="Border">
+          <Border.Styles>
+            <Style Selector="Button#Button:pointerover">
+              <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="Border#Border Button#Button">
+              <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="Border#Border:pointerover Button#Button">
+              <Setter Property="IsVisible" Value="True" />
+            </Style>
+          </Border.Styles>
+          <AdornerLayer.Adorner>
+            <Button Name="Button" Content="x" Cursor="Arrow" Background="Red" BorderThickness="0" CornerRadius="4" Foreground="White" FontSize="8" Margin="0,-4,-4,0" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Top" />
+          </AdornerLayer.Adorner>
+          <TextBlock Margin="4"
+                     Text="{TemplateBinding Text}"
+                     VerticalAlignment="Center" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+  </Style>
+</Styles>
