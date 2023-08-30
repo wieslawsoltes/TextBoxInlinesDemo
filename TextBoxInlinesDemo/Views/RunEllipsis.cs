@@ -52,13 +52,13 @@ public sealed class RunEllipsis : TextCollapsingProperties
         var availableWidth = Width - shapedSymbol.Size.Width;
         var textRuns = new List<TextRun>();
 
-        Console.WriteLine($"availableWidth: {availableWidth}, Width: {Width}, shapedSymbol.Size.Width: {shapedSymbol.Size.Width}");
+        // Console.WriteLine($"availableWidth: {availableWidth}, Width: {Width}, shapedSymbol.Size.Width: {shapedSymbol.Size.Width}");
         
         for (var i = 0; i < textLine.TextRuns.Count; i++)
         {
             var currentRun = textLine.TextRuns[i];
 
-            //Console.WriteLine($"currentRun[{i}]: {currentRun.GetType()}");
+            // Console.WriteLine($"currentRun[{i}]: {currentRun.GetType()}");
             switch (currentRun)
             {
                 case ShapedTextRun shapedRun:
@@ -67,12 +67,12 @@ public sealed class RunEllipsis : TextCollapsingProperties
 
                     if (currentWidth > availableWidth)
                     {
-                        Console.WriteLine($"Collapse ShapedTextRun[{i}]: {currentRun.GetType()} '{currentRun.Text}', availableWidth: {availableWidth}, currentWidth: {currentWidth}");
+                        // Console.WriteLine($"Collapse ShapedTextRun[{i}]: {currentRun.GetType()} '{currentRun.Text}', availableWidth: {availableWidth}, currentWidth: {currentWidth}");
                         textRuns.Add(shapedSymbol);
                         return textRuns.ToArray();
                     }
 
-                    Console.WriteLine($"Add ShapedTextRun[{i}]: {currentRun.GetType()} '{currentRun.Text}', availableWidth: {availableWidth}, currentWidth: {currentWidth}");
+                    // Console.WriteLine($"Add ShapedTextRun[{i}]: {currentRun.GetType()} '{currentRun.Text}', availableWidth: {availableWidth}, currentWidth: {currentWidth}");
                     textRuns.Add(shapedRun);
 
                     availableWidth -= shapedRun.Size.Width;
@@ -86,12 +86,12 @@ public sealed class RunEllipsis : TextCollapsingProperties
 
                     if (currentWidth > availableWidth)
                     {
-                        Console.WriteLine($"Collapse DrawableTextRun[{i}]: {currentRun.GetType()} '{currentRun.Text}', availableWidth: {availableWidth}, currentWidth: {currentWidth}");
+                        // Console.WriteLine($"Collapse DrawableTextRun[{i}]: {currentRun.GetType()} '{currentRun.Text}', availableWidth: {availableWidth}, currentWidth: {currentWidth}");
                         textRuns.Add(shapedSymbol);
                         return textRuns.ToArray();
                     }
 
-                    Console.WriteLine($"Add DrawableTextRun[{i}]: {currentRun.GetType()} '{currentRun.Text}', availableWidth: {availableWidth}, currentWidth: {currentWidth}");
+                    // Console.WriteLine($"Add DrawableTextRun[{i}]: {currentRun.GetType()} '{currentRun.Text}', availableWidth: {availableWidth}, currentWidth: {currentWidth}");
                     textRuns.Add(drawableRun);
 
                     availableWidth -= drawableRun.Size.Width;
