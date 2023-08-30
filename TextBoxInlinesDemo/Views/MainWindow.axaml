@@ -34,6 +34,9 @@
                 BorderThickness="1"
                 Margin="4"
                 CornerRadius="3">
+          <AdornerLayer.Adorner>
+            <Button Content="X" Cursor="Arrow" Background="Red" BorderThickness="0" CornerRadius="2" Foreground="White" FontSize="8" Margin="0,-4,-4,0" Padding="2" HorizontalAlignment="Right" VerticalAlignment="Top" />
+          </AdornerLayer.Adorner>
           <TextBlock Margin="4"
                      Text="Label 1"
                      VerticalAlignment="Center" />
